@@ -31,7 +31,11 @@ gem 'will_paginate'
 # text input search
 # gem 'pg_search'
 
+# adding breakpoints
 gem 'pry'
+
+# precompiling assets
+gem 'rails_12factor', group: :production
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
