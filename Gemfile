@@ -29,7 +29,10 @@ gem 'spring',        group: :development
 # pagination
 gem 'will_paginate'
 
+# text input search
+gem 'pg_search'
 
+gem 'pry'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

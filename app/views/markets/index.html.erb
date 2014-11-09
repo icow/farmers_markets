@@ -1,11 +1,18 @@
 <div class="markets-container">
 
+<%= form_tag markets_path, method: :get do %>
+ <p>
+   <%= text_field_tag :query, params[:query] %>
+   <%= submit_tag "Search", name: nil %>
+ </p>
+<% end %>
+
 
   <div class="col-md-12">
     <h1>Listing markets</h1>
 
     <div class="pages">
-      <%= will_paginate @courses, :container => false %>
+      <%= will_paginate @markets, :container => false %>
     </div>
 
     <table class="table table-striped table-bordered nowrap">
