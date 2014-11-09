@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
@@ -28,6 +27,9 @@ gem 'spring',        group: :development
 
 # pagination
 gem 'will_paginate'
+
+# text input search
+# gem 'pg_search'
 
 gem 'pry'
 

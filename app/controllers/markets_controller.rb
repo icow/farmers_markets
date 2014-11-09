@@ -1,11 +1,61 @@
 class MarketsController < ApplicationController
   before_action :set_market, only: [:show, :edit, :update, :destroy]
-  before_filter :sluggit
+  # before_filter :sluggit
 
   # GET /markets
   # GET /markets.json
   def index
-    @markets = Market.all.paginate(page: params[:page], per_page: 10)
+    # @markets = Market.city("Douglasville")
+    puts "============================"
+    puts params[:query]
+
+    term = params[:query]
+
+    if term != '' && term != nil
+
+      if term.to_i > 0
+        # if over term must be an integer
+        zip = term.to_i
+        @markets = Market.where(zip: zip)
+
+      else
+        @markets = Market.where("city = '#{term}' OR state = '#{term}' OR market_name = '#{term}'")
+      end
+
+      puts "inside first params filter"
+
+      term = term.titleize
+
+      puts "term: #{term}"
+
+      
+
+
+      # city = params[:query].titleize
+
+      # binding.pry
+
+
+
+      # @markets = Market.where("city = #{term}")
+
+      # puts "#{@markets}: @markets"
+
+      puts @markets
+
+      # @markets = Market.where(city: term).join(' OR ').where(zip: term).join(' OR ').where(state: term).join(' OR ').where(market_name: term)
+
+      # @markets = Market.all
+
+    else
+
+      @markets = Market.all
+
+    end
+    # @markets = Market.all
+    puts "============================"
+    @markets = @markets.all.paginate(page: params[:page], per_page: 25)
+    # latslong
   end
 
   # GET /markets/1
@@ -14,7 +64,6 @@ class MarketsController < ApplicationController
     puts "======================="
     puts params
     puts "======================="
-    binding.pry
   end
 
   # GET /markets/new
@@ -69,16 +118,20 @@ class MarketsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_market
-      @market = Market.find(params[:id])
+      @market = Market.find_by(slug: params[:id])
+      # puts @market.inspect
+      # puts "@market.market_name: #{@market.market_name}"
+      # puts @market.market_name
+      # binding.pry
     end
 
-    def sluggit
-      if @market
-        @slug = set_market.slug
-        puts "#{@slug}: @slug"
-        binding.pry
-      end
-    end
+    # def sluggit
+    #   if @market
+    #     @slug = set_market.slug
+    #     puts "@slug: #{@slug}"
+    #     # binding.pry
+    #   end
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def market_params
