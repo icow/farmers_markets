@@ -11,7 +11,7 @@
     <table class="table table-striped table-bordered nowrap">
       <thead>
         <tr>
-          <th colspan="2">FMID</th>
+          <th class="center" colspan="2">FMID</th>
           <th class="center">Market Name</th>
           <th class="center">Website</th>
           <th class="center">Street</th>
@@ -63,7 +63,7 @@
         <% @markets.each do |market| %>
           <tr>
 
-            <td class=""><%= link_to 'View', market %> | 
+            <td class=""><%= link_to 'View', "/markets/#{market.slug}" %> | 
                 <%= link_to 'Edit', edit_market_path(market) %> | 
                 <%= link_to 'Remove', market, method: :delete, data: { confirm: 'Are you sure?' } %></td>
 

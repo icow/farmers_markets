@@ -1,5 +1,6 @@
 class MarketsController < ApplicationController
   before_action :set_market, only: [:show, :edit, :update, :destroy]
+  before_filter :sluggit
 
   # GET /markets
   # GET /markets.json
@@ -10,6 +11,10 @@ class MarketsController < ApplicationController
   # GET /markets/1
   # GET /markets/1.json
   def show
+    puts "======================="
+    puts params
+    puts "======================="
+    binding.pry
   end
 
   # GET /markets/new
@@ -65,6 +70,14 @@ class MarketsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_market
       @market = Market.find(params[:id])
+    end
+
+    def sluggit
+      if @market
+        @slug = set_market.slug
+        puts "#{@slug}: @slug"
+        binding.pry
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
