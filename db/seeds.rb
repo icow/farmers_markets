@@ -9,7 +9,7 @@
 
 require 'csv' 
 
-csv = File.read('/Users/timothysuggs/Downloads/data-configured.csv', encoding: "iso-8859-1:UTF-8")
+csv = File.read('/Users/mjordan/Downloads/data-configured.csv', encoding: "iso-8859-1:UTF-8")
 data = CSV.parse(csv, headers: true)
 
 data.each do |row|  

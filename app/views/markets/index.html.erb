@@ -1,113 +1,133 @@
-<h1>Listing markets</h1>
+<div class="markets-container">
 
-<table>
-  <thead>
-    <tr>
-      <th>Fmid</th>
-      <th>Market name</th>
-      <th>Website</th>
-      <th>Street</th>
-      <th>City</th>
-      <th>County</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Season1 date</th>
-      <th>Season1 time</th>
-      <th>Season2 date</th>
-      <th>Season2 time</th>
-      <th>Season3 date</th>
-      <th>Season3 time</th>
-      <th>Season4 date</th>
-      <th>Season4 time</th>
-      <th>X</th>
-      <th>Y</th>
-      <th>Location</th>
-      <th>Credit</th>
-      <th>Wic</th>
-      <th>Wic cash</th>
-      <th>Sfmnp</th>
-      <th>Snap</th>
-      <th>Baked goods</th>
-      <th>Cheese</th>
-      <th>Crafts</th>
-      <th>Flowers</th>
-      <th>Eggs</th>
-      <th>Seafood</th>
-      <th>Herbs</th>
-      <th>Vegetables</th>
-      <th>Honey</th>
-      <th>Jams</th>
-      <th>Maple</th>
-      <th>Meat</th>
-      <th>Nursery</th>
-      <th>Nuts</th>
-      <th>Plants</th>
-      <th>Poultry</th>
-      <th>Prepared</th>
-      <th>Soap</th>
-      <th>Trees</th>
-      <th>Wine</th>
-      <th>Update time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @markets.each do |market| %>
-      <tr>
-        <td><%= market.FMID %></td>
-        <td><%= market.market_name %></td>
-        <td><%= market.website %></td>
-        <td><%= market.street %></td>
-        <td><%= market.city %></td>
-        <td><%= market.county %></td>
-        <td><%= market.state %></td>
-        <td><%= market.zip %></td>
-        <td><%= market.season1_date %></td>
-        <td><%= market.season1_time %></td>
-        <td><%= market.season2_date %></td>
-        <td><%= market.season2_time %></td>
-        <td><%= market.season3_date %></td>
-        <td><%= market.season3_time %></td>
-        <td><%= market.season4_date %></td>
-        <td><%= market.season4_time %></td>
-        <td><%= market.x %></td>
-        <td><%= market.y %></td>
-        <td><%= market.location %></td>
-        <td><%= market.credit %></td>
-        <td><%= market.wic %></td>
-        <td><%= market.wic_cash %></td>
-        <td><%= market.SFMNP %></td>
-        <td><%= market.SNAP %></td>
-        <td><%= market.baked_goods %></td>
-        <td><%= market.cheese %></td>
-        <td><%= market.crafts %></td>
-        <td><%= market.flowers %></td>
-        <td><%= market.eggs %></td>
-        <td><%= market.seafood %></td>
-        <td><%= market.herbs %></td>
-        <td><%= market.vegetables %></td>
-        <td><%= market.honey %></td>
-        <td><%= market.jams %></td>
-        <td><%= market.maple %></td>
-        <td><%= market.meat %></td>
-        <td><%= market.nursery %></td>
-        <td><%= market.nuts %></td>
-        <td><%= market.plants %></td>
-        <td><%= market.poultry %></td>
-        <td><%= market.prepared %></td>
-        <td><%= market.soap %></td>
-        <td><%= market.trees %></td>
-        <td><%= market.wine %></td>
-        <td><%= market.update_time %></td>
-        <td><%= link_to 'Show', market %></td>
-        <td><%= link_to 'Edit', edit_market_path(market) %></td>
-        <td><%= link_to 'Destroy', market, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="col-md-12">
+    <h1>Listing markets</h1>
 
-<br>
+    <div class="pages">
+      <%= will_paginate @courses, :container => false %>
+    </div>
 
-<%= link_to 'New Market', new_market_path %>
+    <table class="table table-striped table-bordered nowrap">
+      <thead>
+        <tr>
+          <th colspan="2">FMID</th>
+          <th class="center">Market Name</th>
+          <th class="center">Website</th>
+          <th class="center">Street</th>
+          <th class="center">City</th>
+          <th class="center">County</th>
+          <th class="center">State</th>
+          <th class="center">Zip</th>
+          <th class="center">Season1 Date</th>
+          <th class="center">Season1 Time</th>
+          <th class="center">Season2 Date</th>
+          <th class="center">Season2 Time</th>
+          <th class="center">Season3 Date</th>
+          <th class="center">Season3 Time</th>
+          <th class="center">Season4 Date</th>
+          <th class="center">Season4 Time</th>
+          <th class="center">X</th>
+          <th class="center">Y</th>
+          <th class="center">Location</th>
+          <th class="center">Credit</th>
+          <th class="center">WIC</th>
+          <th class="center">WIC Cash</th>
+          <th class="center">SFMNP</th>
+          <th class="center">SNAP</th>
+          <th class="center">Baked Goods</th>
+          <th class="center">Cheese</th>
+          <th class="center">Crafts</th>
+          <th class="center">Flowers</th>
+          <th class="center">Eggs</th>
+          <th class="center">Seafood</th>
+          <th class="center">Herbs</th>
+          <th class="center">Vegetables</th>
+          <th class="center">Honey</th>
+          <th class="center">Jams</th>
+          <th class="center">Maple</th>
+          <th class="center">Meat</th>
+          <th class="center">Nursery</th>
+          <th class="center">Nuts</th>
+          <th class="center">Plants</th>
+          <th class="center">Poultry</th>
+          <th class="center">Prepared</th>
+          <th class="center">Soap</th>
+          <th class="center">Trees</th>
+          <th class="center">Wine</th>
+          <th class="center">Update Time</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @markets.each do |market| %>
+          <tr>
+
+            <td class=""><%= link_to 'View', market %> | 
+                <%= link_to 'Edit', edit_market_path(market) %> | 
+                <%= link_to 'Remove', market, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+            <td><%= market.FMID %></td>
+            <td><%= market.market_name %></td>
+            <td><%= market.website %></td>
+            <td><%= market.street %></td>
+            <td><%= market.city %></td>
+            <td><%= market.county %></td>
+            <td><%= market.state %></td>
+            <td><%= market.zip %></td>
+            <td><%= market.season1_date %></td>
+            <td><%= market.season1_time %></td>
+            <td><%= market.season2_date %></td>
+            <td><%= market.season2_time %></td>
+            <td><%= market.season3_date %></td>
+            <td><%= market.season3_time %></td>
+            <td><%= market.season4_date %></td>
+            <td><%= market.season4_time %></td>
+            <td><%= market.x %></td>
+            <td><%= market.y %></td>
+            <td><%= market.location %></td>
+            <td><%= market.credit %></td>
+            <td><%= market.wic %></td>
+            <td><%= market.wic_cash %></td>
+            <td><%= market.SFMNP %></td>
+            <td><%= market.SNAP %></td>
+            <td><%= market.baked_goods %></td>
+            <td><%= market.cheese %></td>
+            <td><%= market.crafts %></td>
+            <td><%= market.flowers %></td>
+            <td><%= market.eggs %></td>
+            <td><%= market.seafood %></td>
+            <td><%= market.herbs %></td>
+            <td><%= market.vegetables %></td>
+            <td><%= market.honey %></td>
+            <td><%= market.jams %></td>
+            <td><%= market.maple %></td>
+            <td><%= market.meat %></td>
+            <td><%= market.nursery %></td>
+            <td><%= market.nuts %></td>
+            <td><%= market.plants %></td>
+            <td><%= market.poultry %></td>
+            <td><%= market.prepared %></td>
+            <td><%= market.soap %></td>
+            <td><%= market.trees %></td>
+            <td><%= market.wine %></td>
+            <td><%= market.update_time %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+    <br>
+
+    <%= link_to 'New Market', new_market_path %>
+
+    <br>
+    <br>
+    <br>
+
+  </div>
+
+  <div class="pages">
+      <%= will_paginate @courses, :container => false %>
+    </div>
+</div>
