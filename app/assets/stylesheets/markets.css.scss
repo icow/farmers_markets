@@ -4,12 +4,36 @@
 
 .markets-container {
 	margin: 30px;
+	.info {
+		margin: 30px;
+		padding: 20px;
+		background-color: #E5FFE9;
+		text-align: left;
+	}
+	.name {
+		font-size: 16px;
+		font-weight: bold;
+	}
 }
 
 .pages {
-	margin: 20px auto;
+/*	width: 100%;*/
+	/*text-align: center;*/
+	margin: 20px 0px 0px 30px;
+}
+
+.digg_pagination .page_info {
+	background-color: #3FB56D;
 }
 
 .market-profile {
 	margin: 80px;
+}
+
+.text-left {
+	text-align: left;
+}
+
+.text-right {
+	text-align: right;
 }

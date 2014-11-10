@@ -32,10 +32,13 @@ gem 'will_paginate'
 # gem 'pg_search'
 
 # adding breakpoints
-gem 'pry'
+gem 'pry', group: :development
 
 # precompiling assets
 gem 'rails_12factor', group: :production
+
+# state abbreviations
+gem 'madison', '~> 0.4.0'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
