@@ -15,7 +15,7 @@ class Market < ActiveRecord::Base
 		self.attributes.each do |key, value|
 			items << key if value == 'Y'
 		end
-		items
+		items.map{|i| i.gsub('_', ' ')}
 	end
 
 	# def city_state
