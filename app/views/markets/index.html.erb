@@ -71,12 +71,13 @@
     				<%= format_times(m.season1_time).html_safe %>
     			<% end %>
     		</div>
+
     		<% if m.location && m.location != 'Other' %>
 	    		<div class="col-md-12">
 		    		<b>Location:</b> <%= m.location %>
 	    		</div>
     		<% end %>
-    		<div class="col-md-12">
+    		<div class="col-sm-12">
     			<b>Harvest:</b> <%= m.harvest.join(', ')%>
     		</div>
   		</div>
