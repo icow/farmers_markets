@@ -15,7 +15,7 @@ class Market < ActiveRecord::Base
 		self.attributes.each do |key, value|
 			items << key if value == 'Y'
 		end
-		items
+		items.map{|i| i.gsub('_', ' ')}
 	end
 
 	# def city_state
@@ -25,10 +25,8 @@ class Market < ActiveRecord::Base
 	# pg_search_scope :search_details, against: [:name, :description]
 	# pg_search_scope :city_search, against: {market: [:city]}
 
-	# def latlong
-	# 	puts "=========================================================================="
-	# 	puts "#{self.x}, #{self.y}"	
-	# 	puts "=========================================================================="
-	# end
+	def latlong
+		[self.y.to_f, self.x.to_f]
+	end
 
 end

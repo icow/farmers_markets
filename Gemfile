@@ -40,6 +40,9 @@ gem 'rails_12factor', group: :production
 # state abbreviations
 gem 'madison', '~> 0.4.0'
 
+# geocoding data
+gem 'geocoder'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

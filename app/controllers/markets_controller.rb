@@ -22,6 +22,18 @@ class MarketsController < ApplicationController
       @markets = Market.all
     end
     @markets = @markets.all.paginate(page: params[:page], per_page: 25)
+    @coords = []
+    @markets.each {|m| @coords << m.latlong }
+
+    lats = @coords.collect {|latlong| latlong[0]}
+    @avg_lat = lats.sum/lats.size.to_f
+
+    longs = @coords.collect {|latlong| latlong[1]}
+    @avg_long = longs.sum/longs.size.to_f
+  end
+
+  def admin_index
+    @markets = Market.limit(20)
   end
 
   # GET /markets/1
@@ -81,7 +93,9 @@ class MarketsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_market
-      @market = Market.find_by(slug: params[:id])
+      @market = Market.find_by(slug: params[:slug])
+      # print "Market Name: "
+      # puts @market.market_name
       # puts @market.inspect
       # puts "@market.market_name: #{@market.market_name}"
       # puts @market.market_name
